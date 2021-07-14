@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-gitea
+spec:
+  selector:
+    matchLabels:
+      run: my-gitea-pod
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: my-gitea-pod
+    spec:
+      containers:
+      - name: my-gitea-container
+        image: gitea/gitea:linux-amd64
+        ports:
+        - containerPort: 3000
+        env:
+        - name: USER_UID
+          value: "1000"
+        - name: USER_GID
+          value: "1000"
+        volumeMounts:
+        - name: gitea-storage
+          mountPath: /data
+      volumes:
+      - name: gitea-storage
+        emptyDir: {}
+      restartPolicy: Always
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-gitea-service
+  labels:
+    run: my-gitea-pod
+spec:
+  #type: NodePort
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000
+    #nodePort: 30000
+  selector:
+    run: my-gitea-pod
