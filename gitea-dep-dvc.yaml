@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       run: my-gitea-pod
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
