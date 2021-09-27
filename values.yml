@@ -1,0 +1,3 @@
+# Default values for podinfo.
+demo:
+  replicaCount: 2
