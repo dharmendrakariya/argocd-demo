@@ -4,6 +4,6 @@ type: application
 version: 1.0.0
 appVersion: "1.0.0"
 dependencies:
-- name: demo6
+- name: demo7
   version: 0.1.0
   repository: https://dharmendrakariya.github.io/helm-charts/
