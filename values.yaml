@@ -1,5 +1,5 @@
 # Default values for podinfo.
-demo:
+demo7:
   replicaCount: 1
 
   image:
