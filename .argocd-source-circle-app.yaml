@@ -4,5 +4,5 @@ helm:
     value: dharmendrakariya/circle-app
     forcestring: true
   - name: demo7.image.tag
-    value: 0.1.17
+    value: 0.1.18
     forcestring: true
