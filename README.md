@@ -3,19 +3,21 @@
 Tools we are using here are ```CiecleCI``` as a ```CI``` to build the docker image and push it to the DockerHub and ```ArgoCD``` as ```CD``` to deploy application in k8s Cluster.
 
 
-Fisrt Part:
+#### Fisrt Part:
 
 - We have [circleci-demo](https://github.com/dharmendrakariya/circleci-demo) named repo where we are having application code and Dockerfile
 
 - on every commit on master triggers the Circle CI and builds the docker image with semver like 1.0.$(circle_build_number)
 
-Second Part:
+#### Second Part:
 
 - We are having [helm-chart](https://github.com/dharmendrakariya/helm-charts) repo and we are storing our chart here.
 
     - How to create helm-chart repo in github is different topic, but you can refer the official [documentation](https://helm.sh/docs/howto/chart_releaser_action/). its very simple with the github actions.
 
     - The chart we are using is ```demo7```
+
+#### Third Part: 
 
 - We are having [argo-cd](https://github.com/dharmendrakariya/argocd-demo) repo where we are storing helm release(in ```hook`` branch) to get it synced in our cluster.
 
@@ -54,6 +56,8 @@ Second Part:
 
     make the dns entry and try to access it, how to retrieve argo password is given in above mentioned official documentation.
 
+#### Fourth Part:
+
 - Create a application in argocd dashboard with given attributes.
 
     - We will be installing helm chart with the subchart deploymenr method, us can refer [this](https://cloud.redhat.com/blog/continuous-delivery-with-helm-and-argo-cd) document. 
@@ -63,6 +67,8 @@ Second Part:
     repo url: https://github.com/dharmendrakariya/argocd-demo
 
     branch: hook
+
+#### Fifth Part:
 
 - Install argocd-image-updater with [this](https://argocd-image-updater.readthedocs.io/en/stable/install/start/#apply-the-installation-manifests) crds
 
@@ -92,6 +98,9 @@ Second Part:
     - again apply the modified annotated-app.yaml with given command
 
         ```kc apply -f annotated-app.yaml```
+
+#### Sixth Part:
+
 
 - Go to ```circleci-demo``` repo, update the index.html, it will trigger the ci, and check the circleci dashboard or imageRepository(in my case dockerHub), it will push the updated image.  
 
