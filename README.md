@@ -19,7 +19,7 @@ Tools we are using here are ```CiecleCI``` as a ```CI``` to build the docker ima
 
 #### Third Part: 
 
-- We are having [argo-cd](https://github.com/dharmendrakariya/argocd-demo) repo where we are storing helm release(in ```hook`` branch) to get it synced in our cluster.
+- We are having [argo-cd](https://github.com/dharmendrakariya/argocd-demo) repo where we are storing helm release (in ```hook``` branch) to get it synced in our cluster.
 
     
     - First, To install argocd in your cluster follow official [documentation](https://argo-cd.readthedocs.io/en/stable/getting_started/).
